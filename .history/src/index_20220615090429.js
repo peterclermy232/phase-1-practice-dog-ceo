@@ -1,4 +1,4 @@
-//console.log('%c HI', 'color: firebrick')
+console.log('%c HI', 'color: firebrick')
 
 let breeds = [];
 
@@ -46,7 +46,7 @@ function updateBreedList(breeds){
 function removeChildren(element){
     let child = element.lastElementChild;
     while(child){
-        element.removeChild(child);
+        element.removeChildren(child);
         child = element.lastElementChild;
     }
 }

@@ -1,6 +1,6 @@
-//console.log('%c HI', 'color: firebrick')
+console.log('%c HI', 'color: firebrick')
 
-let breeds = [];
+const breeds = [];
 
 document.addEventListener('DOMContentLoaded', function (){
     loadImages();
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function (){
 });
 
 function loadImages(){
-    let imgUrl = "https://dog.ceo/api/breeds/image/random/4"
+    const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
      fetch(imgUrl)
         .then(res=> res.json())
          .then(results => {
@@ -17,8 +17,8 @@ function loadImages(){
 }
 
 function addImage(dogUrl) {
-    let container = document.querySelector('#dog-image-container');
-    let newImage = document.createElement('img');
+    const container = document.querySelector('#dog-image-container');
+    const newImage = document.createElement('img');
     newImage.src = dogUrl;
     container.appendChild(newImage);
     
@@ -27,7 +27,7 @@ function addImage(dogUrl) {
 
 
 function breedOptions() {
-    let breedUrl = 'https://dog.ceo/api/breeds/list/all'
+    const breedUrl = 'https://dog.ceo/api/breeds/list/all'
     fetch(breedUrl)
       .then(res => res.json())
       .then(results => {
@@ -38,15 +38,15 @@ function breedOptions() {
 }
 
 function updateBreedList(breeds){
-    let ul = document.querySelector('#dog-breeds');
+    const ul = document.querySelector('#dog-breeds');
     removeChildren(ul);
-    breeds.forEach(breed => addBreed(breed));
+    breeds.forEach(breeds => addBreed(breed));
 }
 
 function removeChildren(element){
-    let child = element.lastElementChild;
+    const child = element.lastElementChild;
     while(child){
-        element.removeChild(child);
+        element.removeChildren(child);
         child = element.lastElementChild;
     }
 }
@@ -54,16 +54,10 @@ function removeChildren(element){
 function selectBreedsStartingWith(letter){
     updateBreedList(breeds.filter(breed => breed.startsWith(letter)));
 }
-function addBreedSelectListener() {
-    let breedDropdown = document.querySelector('#breed-dropdown');
-    breedDropdown.addEventListener('change', function (event) {
-      selectBreedsStartingWith(event.target.value);
-    });
-  }
-  
+
 function addBreed(breed) {
-    let ul = document.querySelector('#dog-breeds');
-    let li = document.createElement('li');
+    const ul = document.querySelector('#dog-breeds');
+    const li = document.createElement('li');
     li.innerText = breed;
     li.style.cursor = 'pointer';
     ul.appendChild(li);
@@ -72,5 +66,5 @@ function addBreed(breed) {
 }
 
 function updateColor(event){
-    event.target.style.color = 'blue'
+    event.target.style.color
 }

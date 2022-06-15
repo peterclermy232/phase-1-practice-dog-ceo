@@ -1,4 +1,4 @@
-//console.log('%c HI', 'color: firebrick')
+console.log('%c HI', 'color: firebrick')
 
 let breeds = [];
 
@@ -46,7 +46,7 @@ function updateBreedList(breeds){
 function removeChildren(element){
     let child = element.lastElementChild;
     while(child){
-        element.removeChild(child);
+        element.removeChildren(child);
         child = element.lastElementChild;
     }
 }
@@ -54,13 +54,7 @@ function removeChildren(element){
 function selectBreedsStartingWith(letter){
     updateBreedList(breeds.filter(breed => breed.startsWith(letter)));
 }
-function addBreedSelectListener() {
-    let breedDropdown = document.querySelector('#breed-dropdown');
-    breedDropdown.addEventListener('change', function (event) {
-      selectBreedsStartingWith(event.target.value);
-    });
-  }
-  
+
 function addBreed(breed) {
     let ul = document.querySelector('#dog-breeds');
     let li = document.createElement('li');
